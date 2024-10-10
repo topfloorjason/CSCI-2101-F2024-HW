@@ -13,8 +13,6 @@ public class MathGames {
     // Example 1: pythagorean(3,4) would return 5
 
 
-
-    
     // 2. Create a method that will calcuate my grade in the class. You can use the grade range as follows
         // A: 100 - 90
         // B:  89 - 80
@@ -23,10 +21,10 @@ public class MathGames {
         // F:  60 -  0 
         // method should accept the grade as a double and return the letter grade of what I got
         // NOTE: Im a really nice guy and always round up on my grading so a 69.3 will round up to a 70.0
-        // Hint 1: if statements required here you will probably need at the least 5 if / ifelse / else statments
+        // Hint 1: if statements required here you will probably need at the least 5 if / elseif / else statments
         // Hint 2: You will probably need to cast the double to an int
         // Hint 3: You will probably need to use the Math.ceil() method
-        // Example: grade(69.3) would return a D
+        // Example: grade(68) would return a D
 
 
 
