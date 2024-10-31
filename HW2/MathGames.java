@@ -3,6 +3,9 @@ package HW2;
 
 public class MathGames {
     // 1. Create a method that will calculate the Pythagorean Theorem (https://en.wikipedia.org/wiki/Pythagorean_theorem)
+    public static double pythagorean(int a, int b) {
+        return Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+    }
     // c = sqrt(a^2+b^2)
     // NOTE: You can assume you will only need to calculate the Hypotenuse
     // Hint 1: Method should take in 2 sides(a and b) of the triangle and return the missing side.
@@ -26,6 +29,23 @@ public class MathGames {
         // Hint 3: You will probably need to use the Math.ceil() method
         // Example: grade(68) would return a D
 
+        public static String finalGrade(double grade){
+
+            int roundedGrade = (int) Math.ceil(grade);
+            if(roundedGrade >= 90){
+                return "A";
+            } else if(roundedGrade >= 80){
+                return "B";
+            } else if(roundedGrade >= 70){
+                return "C";
+            } else if(roundedGrade >= 60){
+                return "D";
+            } else {
+                return "F";
+            }
+        }
+    
+
 
 
 
@@ -40,12 +60,29 @@ public class MathGames {
     //      Hint 4: You will probably need to use the Math.ceil() method
     //      Example: tip(100, 4, 18) would return 5.0
 
+    public static double tip(double totalBill, int people, double tipPercentage){
+      double tip = totalBill * (tipPercentage/100);
+      double tipPerson = tip / people;
+        return Math.ceil(tipPerson);
+    }
+
     
  
 
 
     // You can either create a tester class or put your code here
      public static void main(String[] args){
-        
+
+        //pythaogrean theorem code;
+        System.out.println("Hypotenuse: " + pythagorean(3, 4)); 
+
+        //grade code
+        System.out.println("Grade: " + finalGrade(68));
+        System.out.println("Grade: " + finalGrade(69.3));
+
+        //tip code
+        System.out.println("Tip: " + tip(100, 4, 18));
+
+
     }
 }
