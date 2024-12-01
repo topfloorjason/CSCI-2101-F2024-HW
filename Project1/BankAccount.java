@@ -38,7 +38,7 @@ public class BankAccount {
     private int accountNumber; // this.accountNumber
     public double interestRate = 0.01;
     public int period = 4; // quarterly
-    
+
     // Bank Account Constructor
     public BankAccount(String name, double balance, String dob, int ssn,  int accountNumber){
         this.name = name;
@@ -46,7 +46,6 @@ public class BankAccount {
         this.dob = dob;
         this.ssn = ssn;
         this.accountNumber = accountNumber;
-        
     }
 
     public BankAccount(String name, int ssn){
@@ -55,7 +54,7 @@ public class BankAccount {
     }
 
     // Getters and Setters
-    
+
     public String getName() {
         return this.name;
     }
@@ -91,7 +90,6 @@ public class BankAccount {
         * Add logic for overdraft here
         */
         this.balance -= amount; // this.balance = this.balance - amount;
-
     }
 
     // Monthly Fee - will subtract a monthly fee from the balance
@@ -107,8 +105,7 @@ public class BankAccount {
         System.out.println("Balance: $" + this.balance);
     }
 
-
-    // Create a method that will calculate the interest on the balance using coumpound interest
+    // Create a method that will calculate the interest on the balance using compound interest
     // P(1 + R/n)^(nt) - P
     // A = P(1 + R/n )^(nt)
     // P = Principal
@@ -131,22 +128,27 @@ public class BankAccount {
         System.out.println("Total Amount after " + time + " years is: $" + roundedAmount);
     }
 
-
     /*
      * Insert simpleInterest method here.
      */
-
-
-
+    public void simpleInterest(double principal, int time, double rate){
+        double simpleInterest = (principal * rate * time) / 100; // (P * R * T) / 100
+        simpleInterest = Math.round(simpleInterest * 100.0) / 100.0;
+        System.out.println("Simple Interest after " + time + " years is: $" + simpleInterest);
+    }
 
     /*
      * Insert transfer method here.
      */
-
-
-
-
-
+    public void transfer(double amount, BankAccount toAccount){
+        if (this.balance >= amount) {
+            this.withdraw(amount); // Deduct from the current account
+            toAccount.deposit(amount); // Add to the recipient account
+            System.out.println("Transfer successful. $" + amount + " transferred to " + toAccount.getName());
+        } else {
+            System.out.println("Transfer failed. Insufficient balance.");
+        }
+    }
 
     // Create a method that will print a menu to the user
     // This is called a helper method / function
@@ -159,9 +161,8 @@ public class BankAccount {
         System.out.println("2. Withdraw");
         System.out.println("3. Print Balance");
         System.out.println("4. Compound Interest");
-        /*
-         * Add menu options for transfer and Simple Interest
-         */
+        System.out.println("5. Simple Interest");
+        System.out.println("6. Transfer");
         System.err.println("0. Exit");
         choice = input.nextInt(); // Collect the user's input
         return choice; // Return the user's input
@@ -170,14 +171,14 @@ public class BankAccount {
     // Create a method that will interact with the user based on their 
     // choice from the menu.
     // This method will take a BankAccount object as a parameter
-    public static void interact(BankAccount account){
+    public static void interact(BankAccount account, BankAccount transferAccount){
         // get the choice from the menu method
         // Create a scanner object
         int choice = menu();
         Scanner input = new Scanner(System.in);
-        
+
         // user the choice from the menu to run the method associated with that choice
-        
+
         if (choice == 1){ // Deposit
             System.out.println("Please enter the amount you would like to deposit: ");
             double amount = input.nextDouble(); // save the amount from user to deposit
@@ -196,9 +197,16 @@ public class BankAccount {
             int years = input.nextInt();
             account.compoundInterest(account.getBalance(), years, account.interestRate, account.period);
             account.printBalance();
-        /*
-         * Add logic for transfer and Simple Interest
-         */
+        } else if (choice == 5){ // Simple Interest
+            System.out.println("Simple Interest Calculator");
+            System.out.println("How many years? (Whole Numbers Only)");
+            int years = input.nextInt();
+            account.simpleInterest(account.getBalance(), years, account.interestRate * 100);
+        } else if (choice == 6){ // Transfer
+            System.out.println("Transfer Funds");
+            System.out.println("Enter the amount to transfer:");
+            double amount = input.nextDouble();
+            account.transfer(amount, transferAccount);
         } else if (choice == 0){ // Exit the program
             System.out.println("Thank you for Banking with us today. Goodbye!");
             input.close();
