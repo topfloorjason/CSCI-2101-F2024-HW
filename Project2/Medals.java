@@ -38,7 +38,7 @@ public class Medals {
           Korea       1       0       0       1
           Japan       0       1       1       2
          Russia       0       1       1       2
-  United States       1       1       0       2
+  United States       1       1       1       3
           Total    Gold    Silver    Bronze   X
                       4       4       5
     */
@@ -65,7 +65,7 @@ public class Medals {
             { 1, 0, 1 }, 
             { 0, 1, 1 }, 
             { 0, 1, 1 },
-            { 1, 1, 0 }
+            { 1, 1, 1 }
         };
         System.out.println("        Country    Gold    Silver    Bronze   Total");
 
