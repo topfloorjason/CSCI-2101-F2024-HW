@@ -16,7 +16,7 @@ public class Medals {
           Korea       1       0       0       1
           Japan       0       1       1       2
          Russia       0       1       1       2
-  United States       1       1       0       2
+  United States       1       1       1       3
 
     After that create an ARRAYLIST that is the total of each medal awarded (IE 4 gold, 4 silver, 5 bronze)
     print the total of each medal 
