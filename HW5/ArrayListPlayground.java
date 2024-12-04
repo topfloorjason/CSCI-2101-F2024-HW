@@ -10,13 +10,13 @@ public class ArrayListPlayground {
         System.out.println("HW5!");
         // Question 1
         // Write Java statements that do the following:
-        // a) Declare an arrayList nums of 15 elements of type int.
-        // b) Output the value of the tenth element of the array nums.
-        // c) Set the value of the 5th element of the array nums to 99.
+        // a) Declare an arrayList nums of 15 elements of type Integer.
+        // b) Output the value of the tenth element of the arrayList nums.
+        // c) Set the value of the 5th element of the arrayList nums to 99.
         // d) set the value of the 13th element to 15
         // d) set the value of the 2nd element to 6
-        // d) Set the value of the 9th element of the array nums to the sum of the 13th
-        // and 2nd elements of the array nums.
+        // d) Set the value of the 9th element of the arrayList nums to the sum of the 13th
+        // and 2nd elements of the arrayList nums.
 
         // Question 2
         // a) create an arrayList of Strings that contain each day of the week.(starting
