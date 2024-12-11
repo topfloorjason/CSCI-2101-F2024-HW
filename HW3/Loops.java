@@ -81,15 +81,15 @@ public class Loops {
     // TOTAL ENDED --- The total is 27.
     public static void sums(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("I will add up the numbers you give me....");
         int total = 0;
+        System.out.println("I will add up the numbers you give me....");
         while (true) {
             System.out.print("Number: ");
-            int number = scanner.nextInt();
-            if (number == 0) {
+            int num = scanner.nextInt();
+            if (num == 0) {
                 break;
             }
-            total += number;
+            total += num;
             System.out.println("The total so far is " + total + ".");
         }
         System.out.println("TOTAL ENDED --- The total is " + total + ".");
@@ -97,24 +97,18 @@ public class Loops {
 
     public static void main(String[] args) {
         // Add code to help test your methods here
-
-        // Test loopE
         System.out.println(loopE("eat")); // true
         System.out.println(loopE("eeat")); // true
         System.out.println(loopE("eeeat")); // true
         System.out.println(loopE("eeeeat")); // false
 
-        // Test stringTimes
         System.out.println(stringTimes("Code", 2)); // "CodeCode"
         System.out.println(stringTimes("Code", 4)); // "CodeCodeCodeCode"
 
-        // Test stringZ
         System.out.println(stringZ("zHelloz")); // "zHelloz"
         System.out.println(stringZ("nozthaznks")); // "nothanks"
         System.out.println(stringZ("xksiazdjaasldzsajzasdz")); // "xksiadjaasldsajasdz"
 
-        // Test sums
-        sums();
+        sums(); // Test sums method
     }
-    
 }
